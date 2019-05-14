@@ -16,6 +16,7 @@
    
 
 **How much performance can be expected to vary on unseen data?**
+
    The average accuracy is equal to 76.982 % and the standard deviation is equal to 69.820%. A large standard deviation means that the data are further from the mean (more spread out). This means that the model is not as accurate as it would be for a model with a lower standard deviation, in which the data points are near each other. The model therefore does not represent the data properly.   
 What is a sensible baseline against which we should compare our model's performance?
 
