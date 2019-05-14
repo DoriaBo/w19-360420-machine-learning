@@ -31,6 +31,7 @@ What is a**
 
 
    *False Positive:* Is when a patient is falsely diagnosed with a disease, but he/she is in good health.
+   
    *False negative:* Is when a sick patient is not diagnosed sick.
 
 
@@ -38,6 +39,7 @@ What is a**
 
 
    *Precision:* Number of correct results (true positives) divided by the number of all results. Equation: True Positives/Actual Results.
+   
    *Recall:* Number of correct results divided by the number of results that should have been returned, so the percentage of results that were correctly classified by the predict() method. Equation: True Positive/Predicted Results.
 
 
