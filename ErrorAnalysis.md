@@ -9,7 +9,7 @@
 **1. Why is the accuracy different with each new run of the classification model?** 
 
 
-  The accuracy is different with each new run of the classification model because there is a shuffle method ! In other words, the line “Collections.shuffle(fullDataSet)”   rearranges the elements of the array in a random order every time the getTestSet() method is called. 
+  The accuracy is different with each new run of the classification model because there is a shuffle method ! In other words, the line “Collections.shuffle(fullDataSet)”   rearranges the elements of the array in a random order every time the getTestSet() object is called. 
 
 
 **2. How much performance can be expected to vary on unseen data?**
