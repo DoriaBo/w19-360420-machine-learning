@@ -2,20 +2,22 @@ import java.util.List;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 
-
-
 public class kNNMain
 {
 
-  public static void main(String... args) throws FileNotFoundException
+  public static void main(String[] args) throws FileNotFoundException
   {   
 	  double [] array = new double [1000];
+	  double [] precision = new double [1000];
+	  double [] recall = new double [1000];
+	  
+	 
       for ( int v = 0 ; v < 1000; v++)
 	  {
     // TASK 1: Use command line arguments to point DataSet.readDataSet method to
     // the desired file. Choose a given DataPoint, and print its features and label
     	  
-	   String datapath = args[0] ; 
+	  String datapath = args[0];
 	   List <DataPoint> Data = DataSet.readDataSet(datapath);
 	   System.out.println(datapath);
 	   
@@ -46,29 +48,48 @@ public class kNNMain
     // point based on nearest neighbors in training set. Calculate accuracy of model.
 		  double gold= 0.0;
 		  double k = 0.0;
+		  double silver=0;
+		  double bronze=0;
+		  double rock=0;
 		 
 		  for ( int i=0; i< test.size() ; i++)
 		  {
-			 KNNClassifier Thorin = new KNNClassifier (9); 
+			  KNNClassifier Thorin = new KNNClassifier (9); 
 			 DataPoint Gandalf = test.get(i);  
 			 String Dwallin = Gandalf.getLabel(); 
 			 String hobbit = Thorin.predict(training,Gandalf);
-			  
-			   
 			   if(hobbit.equals(Dwallin))
 			   {
 					gold++;
-			   }		
+					
+					if (hobbit.equals("malignant"))
+					{
+						bronze++;
+					}
+			   }
+				if (hobbit.equals("malignant"))
+				{  
+					silver++;
+				}
+				 if ( Gandalf.equals("malignant"))
+				{     
+					rock++;
+				}
+				
 			   k++;
 		  }//end for
 			array[v] = (( gold/k)*100);
-			
-			System.out.println("Number of Iteration "+ (v+1));
-			System.out.println("The Accuracy: " + array[v]);
-		
+			precision[v]= (bronze/silver)*100;
+            recall[v] = (bronze/gold)*100 ;
+	
+        	System.out.println(v + "\t"+"The Accuracy: " + array[v] + "\t" +"precision: " + precision[v] +"\t" + "Recall " + recall[v] );
 	    }//end for for 1000
-			System.out.println( "mean equals  "+ mean(array));
+			System.out.println( "mean equals in %  "+ mean(array));
+			System.out.println( "mean precision in % "+ mean(precision));
+			System.out.println( "mean recall in %  "+ mean(recall));
 			System.out.println( " Standard deviation equals " + standardDeviation(array));			
+			System.out.println( " Standard deviation precision equals " + standardDeviation(precision));			
+			System.out.println( " Standard deviation recall equals " + standardDeviation(recall));			
 }//end main
 
 
