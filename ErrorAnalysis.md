@@ -13,8 +13,7 @@
 
 
    Because there is a shuffle! In other words, the line “Collections.shuffle(fullDataSet)”   rearranges the elements of the array in a random order every time the getTestSet() method is called. 
-Run the entire classification process 1000 times (load data, split into off 30% for a test set, evaluate model performance). Store the results of each run in a double[]; use the mean and standardDeviation methods in kNNMain.java to calculate how much performance can be expected to vary on unseen data.
-
+   
 
 **How much performance can be expected to vary on unseen data?**
    The average accuracy is equal to 76.982 % and the standard deviation is equal to 69.820%. A large standard deviation means that the data are further from the mean (more spread out). This means that the model is not as accurate as it would be for a model with a lower standard deviation, in which the data points are near each other. The model therefore does not represent the data properly.   
